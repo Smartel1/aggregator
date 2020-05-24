@@ -12,6 +12,11 @@ public class NewsDto {
     String link;
 
     public static NewsDto from(ru.smartel.aggregator.entity.News news) {
-        return new NewsDto(news.getTitle(), news.getImageUrl(), news.getDescription(), news.getLink());
+        return NewsDto.builder()
+                .title(news.getTitle())
+                .description(news.getDescription())
+                .imageUrl(news.getImageUrl())
+                .link(news.getLink())
+                .build();
     }
 }
